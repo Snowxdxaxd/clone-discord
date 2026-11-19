@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Эхо — текст, ЛС и голосовые комнаты</title>
+  <meta property="og:title" content="Эхо — текстовый и голосовой чат">
+  <meta property="og:description" content="Клон Discord: серверы, каналы, личные сообщения, статусы «в сети» и голосовые комнаты в браузере.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235865f2'/%3E%3Cpath d='M9 12v8M14 8v16M19 11v10M24 14v4' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/css/style.css?v=3">
+</head>
+<body>
+
+  <!-- Экран входа -->
+  <div id="auth" class="auth hidden">
+    <div class="auth-card">
+      <div class="auth-logo">
+        <svg viewBox="0 0 32 32" width="44" height="44"><rect width="32" height="32" rx="8" fill="#5865f2"/><path d="M9 12v8M14 8v16M19 11v10M24 14v4" stroke="#fff" stroke-width="2.6" stroke-linecap="round" fill="none"/></svg>
+      </div>
+      <h1>Эхо</h1>
+      <p class="auth-sub">Демо-чат: серверы, каналы, ЛС и голос. Вход по имени.</p>
+      <form id="authForm">
+        <input id="authName" maxlength="32" placeholder="Придумайте имя" autocomplete="off" autofocus>
+        <button class="btn accent" type="submit">Войти</button>
+      </form>
+      <p class="auth-hint">Сервер «Основной» уже ждёт: код приглашения DEMO.</p>
+    </div>
+  </div>
+
+  <!-- Приложение: три колонки -->
+  <div id="app" class="app hidden">
+    <nav id="rail" class="rail"></nav>
+    <aside class="side">
+      <div id="sideHead" class="side-head"></div>
+      <div id="sideBody" class="side-body"></div>
+      <div id="voicePanel" class="voice-panel hidden"></div>
+      <div id="meBar" class="me-bar">
+        <div class="ava small" id="meAva"></div>
+        <div class="me-name" id="meName"></div>
+        <button class="icon-btn" id="logoutBtn" title="Выйти"></button>
+      </div>
+    </aside>
+    <main class="chat">
+      <header id="chatHead" class="chat-head"></header>
+      <div id="chatScroll" class="chat-scroll">
+        <button id="loadMore" class="load-more hidden">Загрузить ещё</button>
+        <div id="messages" class="messages"></div>
+        <div id="emptyState" class="empty-state hidden"></div>
+      </div>
+      <div id="typing" class="typing"></div>
+      <div id="composer" class="composer">
+        <textarea id="input" rows="1" maxlength="2000" placeholder="Написать сообщение"></textarea>
+        <button id="sendBtn" class="icon-btn accent" title="Отправить"></button>
+      </div>
+    </main>
+    <aside id="members" class="members"></aside>
+  </div>
+
+  <div id="modalRoot" class="modal-root hidden"></div>
+  <div id="toasts" class="toasts"></div>
+
+  <script type="module" src="/js/main.js?v=3"></script>
+</body>
+</html>
